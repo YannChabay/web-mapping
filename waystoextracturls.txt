@@ -1,0 +1,18 @@
+first way : 
+
+grep -oE '[a-zA-Z0-9.-]+' input.txt | \
+  tr '[:upper:]' '[:lower:]' | \
+  sed 's/\.*$//' | \
+  awk -F. 'NF>=2 {print $(NF-1)"."$NF}' | \
+  sort -u
+
+
+second way : 
+
+cat input.txt | \
+  sed 's|https\?://||Ig' | \
+  sed 's|[[:space:]]||g' | \
+  sed 's|[[:punct:]]$||' | \
+  tr '[:upper:]' '[:lower:]' | \
+  awk -F. 'NF>=2 {print $(NF-1)"."$NF}' | \
+  sort -u

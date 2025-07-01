@@ -1,0 +1,18 @@
+what would my ideal CICD pipeline would look like for this project: 
+
+Trigger => on push / merge 
+
+Build => from the Dockerfile, with a clean environment with an available runner (Gitlab CI for example)
+apply image tags 
+
+Test => unitary & integration tests to validate
+security tests (with Trivy for example)
+
+Deliver => code & images are pushed to the repository (example private Docker Hub)
+
+Deploy => if there is a stagging environment, deploy the images & the code into the stagging env
+change images tags, ask for a manual review 
+when accepted, do the same in the production env with a rolling update if possible
+
+Monitor => During tests, send notifications for status changes (email or dedicated channels or other). After test, create / update monitoring boards and focus on the impact on production 
+ 

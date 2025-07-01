@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: scraperpy-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: scraper
+          image: scraperpy:latest
+          args:
+            - -u
+            - "https://google.com"
+            - -o
+            - stdout
+          securityContext:
+            runAsUser: 1000
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+      restartPolicy: Never
