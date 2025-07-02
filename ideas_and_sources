@@ -1,0 +1,15 @@
+first idea => parse the link args, foreach link arg => request the link & parse it with bs4, extract links from the page and create a python dict looking like the json. Then, depending on the prefered output, either print or save the dict in a json.
+
+second idea => in the example it looks like only relative URLs are needed so I removed everything that doesn't contain the parsed URL
+
+third idea => add time + sleep to make it sleep
+
+
+https://www.geeksforgeeks.org/python/extract-all-the-urls-from-the-webpage-using-python/
+https://docs.python.org/3/library/urllib.parse.html
+https://labex.io/tutorials/python-how-to-add-multiple-argparse-arguments-451011
+https://docs.python.org/3/library/argparse.html
+https://blog.stephane-robert.info/docs/outils/projets/envsubst/
+https://www.cyberciti.biz/faq/grep-regular-expressions/
+https://www.reddit.com/r/linux4noobs/comments/v3zfdl/how_to_extract_the_domain_name_in_bash_using_sed/
+https://www.reddit.com/r/linuxadmin/comments/3r4l1d/extracting_only_domain_names_from_a_text_file/
